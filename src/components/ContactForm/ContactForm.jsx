@@ -28,12 +28,11 @@ export default class ContactForm extends Component {
 
     this.props.addContact(cotactData);
 
-    this.setState(prevState => {
-      return {
-        name: '',
-        number: '',
-      };
-    });
+    this.setState( {
+      name: '',
+      number: '',
+    }
+    );
   };
 
   render() {

@@ -61,8 +61,9 @@ export class App extends React.Component {
           handleChangeFilter={this.handleChangeFilter}
         />
         <ContactList
-          contacts={this.state.contacts}
-          filter={this.state.filter}
+          contacts={this.state.contacts.filter(el =>
+            el.name.toLowerCase().includes(this.state.filter.toLowerCase())
+          )}
           deleteContact={this.deleteContact}
         />
       </div>

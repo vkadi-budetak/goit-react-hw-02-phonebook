@@ -1,17 +1,13 @@
 import React from 'react';
+import ContactItem from './ContactItem';
 
-export default function ContactList({ contacts, filter, deleteContact }) {
+export default function ContactList({ contacts, deleteContact }) {
   return (
     <div>
       <ul>
-        {contacts
-          .filter(el => el.name.toLowerCase().includes(filter.toLowerCase()))
-          .map(el => (
-            <li key={el.id}>
-              {el.name}: {el.number}{' '}
-              <button onClick={() => deleteContact(el.id)}>Delete</button>
-            </li>
-          ))}
+        {contacts.map(el => (
+          <ContactItem key={el.id} deleteContact={deleteContact} contact={el} />
+        ))}
       </ul>
     </div>
   );
